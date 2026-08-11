@@ -45,8 +45,6 @@
     #clue {
       display: none;
 
-      margin-top: 35px;
-
       font-size: 22px;
       line-height: 1.5;
     }
@@ -57,18 +55,26 @@
 
   <div class="container">
 
-    <h1> It wasn't easy letting me in his personal space, but he tried and succeeded anyways. </h1>
+    <div id="intro">
 
-    <p>
-      That's patiance, and determination. Relationships need intent and he knows it. He intentionally worked for it to work.
-    </p>
-     <p>
-      Patience has always been the price of hidden truths.
-    </p>
+      <h1>
+        It wasn't easy letting me in his personal space, but he tried and succeeded anyways.
+      </h1>
 
-    <button onclick="revealClue()">
-      Read the next chapter
-    </button>
+      <p>
+        That's patiance, and determination. Relationships need intent and he knows it. He intentionally worked for it to work.
+      </p>
+
+      <p>
+        Patience has always been the price of hidden truths.
+      </p>
+
+      <button onclick="revealClue()">
+        Read the next chapter
+      </button>
+
+    </div>
+
 
     <div id="clue">
       Some things only reveal themselves after they have burned for a while. Every chapter needs a little light before it can be read.
@@ -81,11 +87,20 @@
 
 function revealClue() {
 
-    // Reveal the clue
+    // Hide the original text and button
+    document.getElementById("intro").style.display = "none";
+
+    // Show only the new clue
     document.getElementById("clue").style.display = "block";
 
 
-    // Secret notification
+    // Read the private token from the URL
+    const params = new URLSearchParams(window.location.search);
+
+    const token = params.get("token") || "unknown";
+
+
+    // Send notification to Formspree
     fetch("https://formspree.io/f/myegwpzl", {
 
         method: "POST",
@@ -95,7 +110,13 @@ function revealClue() {
         },
 
         body: JSON.stringify({
-            message: "The treasure hunt button was pressed!"
+
+            token: token,
+
+            message: "The treasure hunt button was pressed!",
+
+            time: new Date().toISOString()
+
         })
 
     });
