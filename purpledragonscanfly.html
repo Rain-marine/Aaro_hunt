@@ -41,57 +41,63 @@
     /* Candlelight glow */
 
     body::before {
-      content: "";
+  content: "";
 
-      position: fixed;
+  position: fixed;
 
-      width: 500px;
-      height: 500px;
+  width: 560px;
+  height: 560px;
 
-      border-radius: 50%;
+  border-radius: 50%;
 
-      background: radial-gradient(
-        circle,
-        rgba(255, 184, 92, 0.14) 0%,
-        rgba(255, 135, 50, 0.06) 35%,
-        transparent 70%
-      );
+  background: radial-gradient(
+    circle,
+    rgba(255, 196, 110, 0.24) 0%,
+    rgba(255, 145, 60, 0.12) 28%,
+    rgba(255, 95, 35, 0.05) 50%,
+    transparent 72%
+  );
 
-      filter: blur(20px);
+  filter: blur(24px);
 
-      animation: candleFlicker 4s infinite ease-in-out;
+  animation: candleFlicker 1.6s infinite ease-in-out;
 
-      pointer-events: none;
-    }
+  pointer-events: none;
+}
 
 
-    @keyframes candleFlicker {
+@keyframes candleFlicker {
 
-      0% {
-        opacity: 0.65;
-        transform: scale(0.95) translateY(3px);
-      }
+  0% {
+    opacity: 0.45;
+    transform: scale(0.90) translate(-4px, 6px);
+  }
 
-      25% {
-        opacity: 0.9;
-        transform: scale(1.03) translateY(-2px);
-      }
+  20% {
+    opacity: 0.95;
+    transform: scale(1.07) translate(3px, -5px);
+  }
 
-      50% {
-        opacity: 0.7;
-        transform: scale(0.98);
-      }
+  40% {
+    opacity: 0.58;
+    transform: scale(0.96) translate(-2px, 2px);
+  }
 
-      75% {
-        opacity: 1;
-        transform: scale(1.05) translateY(-3px);
-      }
+  60% {
+    opacity: 1;
+    transform: scale(1.12) translate(4px, -7px);
+  }
 
-      100% {
-        opacity: 0.65;
-        transform: scale(0.95) translateY(3px);
-      }
-    }
+  80% {
+    opacity: 0.7;
+    transform: scale(1.01) translate(-3px, 1px);
+  }
+
+  100% {
+    opacity: 0.45;
+    transform: scale(0.90) translate(-4px, 6px);
+  }
+}
 
 
     .container {
@@ -184,30 +190,106 @@
     }
 
 
-    #clue {
-      display: none;
+#clue {
+  display: none;
 
-      opacity: 0;
+  position: relative;
 
-      max-width: 560px;
+  opacity: 0;
 
-      margin: 0 auto;
+  max-width: 560px;
 
-      font-size: clamp(22px, 4vw, 30px);
+  margin: 0 auto;
 
-      line-height: 1.7;
+  font-size: clamp(22px, 4vw, 30px);
 
-      letter-spacing: 0.2px;
+  line-height: 1.7;
 
-      text-shadow:
-        0 0 18px rgba(255, 175, 92, 0.10);
+  letter-spacing: 0.2px;
 
-      transform: translateY(10px);
+  text-shadow:
+    0 0 18px rgba(255, 175, 92, 0.10);
 
-      transition:
-        opacity 1.3s ease,
-        transform 1.3s ease;
-    }
+  transform: translateY(10px);
+
+  transition:
+    opacity 1.3s ease,
+    transform 1.3s ease;
+}
+
+    #clue::before,
+#clue::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  border-radius: 50%;
+
+  filter: blur(45px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: opacity 1.2s ease;
+}
+
+
+#clue::before {
+  background: radial-gradient(
+    circle,
+    rgba(255, 175, 80, 0.35),
+    rgba(255, 110, 45, 0.12),
+    transparent 70%
+  );
+
+  left: -140px;
+  top: 50%;
+
+  transform: translateY(-50%);
+}
+
+
+#clue::after {
+  background: radial-gradient(
+    circle,
+    rgba(255, 210, 125, 0.28),
+    rgba(255, 85, 40, 0.10),
+    transparent 70%
+  );
+
+  right: -140px;
+  top: 50%;
+
+  transform: translateY(-50%);
+}
+
+
+#clue.show::before,
+#clue.show::after {
+  opacity: 1;
+
+  animation: clueGlow 1.3s infinite alternate ease-in-out;
+}
+
+
+@keyframes clueGlow {
+
+  0% {
+    transform: translateY(-50%) scale(0.9);
+    filter: blur(50px);
+    opacity: 0.35;
+  }
+
+  100% {
+    transform: translateY(-50%) scale(1.18);
+    filter: blur(38px);
+    opacity: 0.8;
+  }
+}
 
 
     #clue.show {
