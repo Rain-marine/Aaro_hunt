@@ -455,71 +455,92 @@
     }
 
 
-    /*
-      SCREEN 4:
-      SUCCESS
-    */
+<!-- ====================================== -->
+<!-- SCREEN 4: SUCCESS + CHAPTER #19       -->
+<!-- ====================================== -->
 
-    #successScreen {
-      display: none;
+<div id="successScreen">
 
-      opacity: 0;
+  <div class="success-small">
+    FOUND
+  </div>
 
-      max-width: 580px;
+  <div class="success-text">
 
-      margin: 0 auto;
+    You found what was waiting for you.
 
-      transform: translateY(10px);
+  </div>
 
-      transition:
-        opacity 1.4s ease,
-        transform 1.4s ease;
-    }
+  <div class="success-subtext">
 
+    Keep it close and be patient just a little longer.
+    The next chapter will come to you.
 
-    #successScreen.show {
-      opacity: 1;
-
-      transform: translateY(0);
-    }
+  </div>
 
 
-    .success-small {
-      margin-bottom: 25px;
+  <div class="chapter-divider">
 
-      font-size: 15px;
+    <div class="transition-line"></div>
 
-      letter-spacing: 5px;
+    <div class="chapter-number">
+      Chapter #19
+    </div>
 
-      text-transform: uppercase;
+    <div class="transition-line"></div>
 
-      color: rgba(255, 201, 137, 0.72);
-    }
-
-
-    .success-text {
-      font-size: clamp(27px, 4vw, 36px);
-
-      line-height: 1.65;
-
-      color: #f3ede4;
-
-      text-shadow:
-        0 0 20px rgba(255, 200, 130, 0.15);
-    }
+  </div>
 
 
-    .success-subtext {
-      max-width: 500px;
+  <div class="chapter-text">
 
-      margin: 30px auto 0;
+    He trusted me to drive his dad's car.
+    He didn't question my skills for a second.
 
-      font-size: 19px;
+  </div>
 
-      line-height: 1.8;
 
-      color: #d8d0c6;
-    }
+ <div class="chapter-divider">
+
+  <div class="transition-line"></div>
+
+  <div class="chapter-number">
+    Chapter #19
+  </div>
+
+  <div class="transition-line"></div>
+
+</div>
+
+
+<div class="chapter-text">
+
+  He trusted me to drive his dad's car.
+  He didn't question my skills for a second.
+
+</div>
+
+
+<!-- PASTE IT HERE -->
+
+<div class="trust-question">
+  Do you trust me enough?
+</div>
+
+<div class="trust-buttons">
+
+  <button onclick="trustYes()">
+    Yes
+  </button>
+
+  <button id="noButton" onclick="trustNo()">
+    No
+  </button>
+
+</div>
+
+<div id="noResponse"></div>
+</div>
 
 
     /*
@@ -734,6 +755,167 @@
   opacity: 0.85;
 }
 
+    /*
+  CHAPTER #19 SECTION
+*/
+
+.chapter-divider {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  width: 100%;
+  max-width: 440px;
+
+  margin: 50px auto 28px;
+}
+
+
+.chapter-divider .transition-line {
+  height: 1px;
+
+  flex: 1;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 201, 137, 0.55),
+    transparent
+  );
+}
+
+
+.chapter-number {
+  font-size: 14px;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  color: rgba(255, 201, 137, 0.75);
+
+  white-space: nowrap;
+}
+
+
+.chapter-text {
+  max-width: 520px;
+
+  margin: 0 auto;
+
+  font-size: 20px;
+
+  line-height: 1.8;
+
+  color: #ded2ca;
+}
+
+
+.install-button {
+  display: inline-block;
+
+  margin-top: 34px;
+
+  padding: 15px 30px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 17px;
+
+  color: #f6eee4;
+
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  border: 1px solid rgba(255, 201, 137, 0.45);
+
+  border-radius: 30px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.install-button:hover {
+  background: rgba(255, 177, 91, 0.10);
+
+  border-color: rgba(255, 201, 137, 0.85);
+
+  box-shadow:
+    0 0 25px rgba(255, 154, 67, 0.15);
+
+  transform: translateY(-2px);
+}
+
+    .trust-question {
+  margin-top: 32px;
+
+  font-size: 24px;
+
+  line-height: 1.6;
+
+  color: #f3ede4;
+}
+
+
+.trust-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  margin-top: 8px;
+}
+
+
+.trust-buttons button {
+  min-width: 100px;
+}
+
+
+#noResponse {
+  margin-top: 25px;
+
+  min-height: 28px;
+
+  font-size: 17px;
+
+  font-style: italic;
+
+  color: rgba(255, 201, 137, 0.8);
+
+  opacity: 0;
+
+  transform: translateY(5px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+
+#noResponse.show {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+#noButton {
+  transition:
+    opacity 0.4s ease,
+    transform 0.3s ease;
+}
     
   </style>
 </head>
@@ -954,6 +1136,44 @@
 
 
 <script>
+
+  function trustYes() {
+
+    window.open(
+        "https://play.google.com/store/apps/details?id=dk.pelican.pelicansmartaccess&hl=en&pli=1",
+        "_blank"
+    );
+
+}
+
+
+function trustNo() {
+
+    const response =
+        document.getElementById("noResponse");
+
+    const noButton =
+        document.getElementById("noButton");
+
+
+    response.innerHTML =
+        "That was a rhetorical question bitch.";
+
+    response.classList.add("show");
+
+
+    noButton.style.opacity = "0";
+
+    noButton.style.pointerEvents = "none";
+
+
+    setTimeout(() => {
+
+        noButton.style.display = "none";
+
+    }, 400);
+
+}
 
 
 /*
