@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Reason #17</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background:
+        radial-gradient(
+          circle at 50% 45%,
+          rgba(255, 210, 170, 0.22),
+          rgba(90, 45, 35, 0.08) 40%,
+          transparent 70%
+        ),
+        #17100f;
+
+      color: #f7eee8;
+
+      font-family: Georgia, "Times New Roman", serif;
+
+      text-align: center;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 650px;
+
+      padding: 55px 35px;
+
+      border: 1px solid rgba(255, 210, 170, 0.18);
+
+      border-radius: 24px;
+
+      background:
+        rgba(255, 255, 255, 0.025);
+
+      box-shadow:
+        0 0 60px rgba(255, 150, 100, 0.06);
+
+      animation:
+        appear 1.5s ease forwards;
+    }
+
+    .number {
+      font-size: 18px;
+
+      letter-spacing: 4px;
+
+      color: #d9aa8c;
+
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      margin: 0 0 30px;
+
+      font-size: clamp(30px, 5vw, 44px);
+
+      font-weight: normal;
+
+      line-height: 1.3;
+    }
+
+    p {
+      margin: 0 auto;
+
+      max-width: 540px;
+
+      font-size: 20px;
+
+      line-height: 1.8;
+
+      color: #ded1ca;
+    }
+
+    .heart {
+      margin-top: 35px;
+
+      font-size: 22px;
+
+      opacity: 0.65;
+    }
+
+    @keyframes appear {
+
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .card {
+        padding: 40px 24px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div class="number">
+      REASON #17
+    </div>
+
+    <h1>
+      You make space for the people you love.
+    </h1>
+
+    <p>
+      It wasn't easy letting me into your personal space, but you tried anyway and succeeded. You showed patience, determination, and intention. You didn't just hope things would work. You worked for them to work.
+    </p>
+
+    <div class="heart">
+      ♡
+    </div>
+
+  </div>
+
+</body>
+</html>
